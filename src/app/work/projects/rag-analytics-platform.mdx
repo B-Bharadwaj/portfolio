@@ -1,0 +1,32 @@
+---
+title: "RAG Analytics Platform"
+publishedAt: "2026-03-01"
+summary: "Production-grade AI BI platform with hybrid FAISS + BM25 multi-PDF retrieval and a PostgreSQL Text-to-SQL pipeline exposed via 24 FastAPI endpoints."
+images: []
+
+link: "https://github.com/B-Bharadwaj/RAG"
+---
+
+## Overview
+
+A production-grade AI Business Intelligence platform that lets users query both unstructured documents (PDFs) and structured databases using natural language. Built during my internship at Happiest Minds Technologies.
+
+## Key Features
+
+- **Hybrid Retrieval**: Combined FAISS vector search with BM25 keyword matching for best-of-both-worlds document retrieval across multiple PDFs simultaneously.
+- **Text-to-SQL Pipeline**: Natural language queries are converted to PostgreSQL SQL via an LLM pipeline, with full query logging for auditability.
+- **24 FastAPI Endpoints**: Clean, well-documented REST API layer handling authentication, query routing, retrieval, and evaluation.
+- **Built-in LLM Evaluation**: Automated evaluation metrics (faithfulness, relevance, completeness) run on every response.
+- **React + Plotly Frontend**: Interactive dashboard with dynamic chart generation from query results and role-aware routing.
+
+## Technologies Used
+
+- **FastAPI** — API layer with async endpoints
+- **FAISS + BM25** — Hybrid vector + keyword retrieval
+- **PostgreSQL** — Structured data source with Text-to-SQL
+- **React + Plotly** — Frontend with interactive visualizations
+- **LangChain / LLM** — Retrieval orchestration and evaluation
+
+## Challenges & Learnings
+
+The core challenge was making retrieval work well across both structured and unstructured sources in a single query. Hybrid FAISS + BM25 retrieval significantly outperformed either approach alone. Building the LLM evaluation layer taught me a lot about measuring AI output quality in production.

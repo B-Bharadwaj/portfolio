@@ -1,0 +1,31 @@
+---
+title: "Claim Reimbursement System"
+publishedAt: "2026-01-01"
+summary: "Full-stack Django + React reimbursement platform with a 5-stage claim lifecycle, JWT auth, role-based dashboards, and a FastAPI + Tesseract OCR microservice."
+images: []
+
+link: "https://github.com/B-Bharadwaj/Claim-Reimbursement-System"
+---
+
+## Overview
+
+An end-to-end claim reimbursement platform built during my internship at Innoventes. It handles the full lifecycle from claim submission to finance approval, with automated OCR-based document processing.
+
+## Key Features
+
+- **5-Stage Claim Lifecycle**: Draft → Submitted → Manager Review → Finance Review → Settled, with status tracking and notifications at each stage.
+- **Role-Based Dashboards**: Separate views and permissions for Employee, Manager, and Finance roles — all under JWT authentication.
+- **OCR Microservice**: A standalone FastAPI service using Tesseract OCR to auto-extract vendor name, date, and amount from uploaded receipts into structured JSON. Users can override extracted values.
+- **Django REST Framework Backend**: Clean API design with full test coverage and deployment-ready configuration.
+
+## Technologies Used
+
+- **Django + DRF** — Core backend and REST API
+- **React** — Frontend with role-specific dashboards
+- **FastAPI + Tesseract** — OCR microservice for receipt parsing
+- **PostgreSQL** — Database with relational claim and user models
+- **JWT** — Authentication and session management
+
+## Challenges & Learnings
+
+Making OCR reliable across different receipt formats was the hardest part. The solution was building a confidence-scoring layer and always giving users the ability to correct extracted values — keeping humans in the loop for accuracy.

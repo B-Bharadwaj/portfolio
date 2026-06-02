@@ -1,0 +1,31 @@
+---
+title: "Alzheimer's & Parkinson's Protein Detection"
+publishedAt: "2025-08-01"
+summary: "BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers on TAPE protein embeddings for 3-class neurodegenerative disease detection — 82% accuracy."
+images: []
+link: "https://github.com/B-Bharadwaj/alzheimer-parkinson-detection"
+---
+
+## Overview
+
+A deep learning system for detecting Alzheimer's and Parkinson's disease biomarkers from protein sequences, using state-of-the-art sequence modelling architectures on TAPE protein embeddings.
+
+## Key Features
+
+- **3-Class Classification**: Distinguishes between Alzheimer's, Parkinson's, and healthy protein sequences with 82% accuracy.
+- **Multi-Architecture Comparison**: Trained and benchmarked BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers.
+- **Auxiliary Regression Head**: Predicts protein misfolding risk score alongside the classification task.
+- **Attention Heatmaps**: Visualises which amino acid subsequences the model attends to — interpretable outputs on Homo sapiens .pdb data.
+- **TAPE Embeddings**: Used pre-trained protein language model embeddings as feature representations.
+
+## Technologies Used
+
+- **PyTorch** — Model training and architecture implementation
+- **TAPE** — Pre-trained protein sequence embeddings
+- **BiLSTM + Luong Attention** — Primary sequence model
+- **Transformer** — Comparative architecture
+- **Matplotlib / Seaborn** — Attention heatmap visualisation
+
+## Challenges & Learnings
+
+Working with biological sequence data required understanding domain-specific preprocessing. The multi-task setup (classification + regression) improved generalisation. Attention heatmaps made results explainable to domain experts — a critical requirement for medical AI.
