@@ -23,10 +23,7 @@ import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return [];
 }
 
 export async function generateMetadata({
