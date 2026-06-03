@@ -9,24 +9,23 @@ link: "https://github.com/B-Bharadwaj/RAG"
 
 ## Overview
 
-A production-grade AI Business Intelligence platform that lets users query both unstructured documents (PDFs) and structured databases using natural language. Built during my internship at Happiest Minds Technologies.
+Built a production-grade AI BI platform that enables natural language querying over both unstructured PDFs and structured databases through a single unified interface.
 
-## Key Features
+## What I Did
 
-- **Hybrid Retrieval**: Combined FAISS vector search with BM25 keyword matching for best-of-both-worlds document retrieval across multiple PDFs simultaneously.
-- **Text-to-SQL Pipeline**: Natural language queries are converted to PostgreSQL SQL via an LLM pipeline, with full query logging for auditability.
-- **24 FastAPI Endpoints**: Clean, well-documented REST API layer handling authentication, query routing, retrieval, and evaluation.
-- **Built-in LLM Evaluation**: Automated evaluation metrics (faithfulness, relevance, completeness) run on every response.
-- **React + Plotly Frontend**: Interactive dashboard with dynamic chart generation from query results and role-aware routing.
+- Built a Multi-PDF RAG system with hybrid FAISS + BM25 retrieval, improving retrieval accuracy over single-method approaches.
+- Designed a PostgreSQL Text-to-SQL pipeline exposed via 24 FastAPI endpoints with full SQL logging for auditability.
+- Integrated built-in LLM evaluation metrics — faithfulness, relevance, and completeness — running on every query response.
+- Developed a React + Plotly frontend with role-aware routing, allowing non-technical stakeholders to query both data sources without writing code.
 
 ## Technologies Used
 
 - **FastAPI** — API layer with async endpoints
 - **FAISS + BM25** — Hybrid vector + keyword retrieval
 - **PostgreSQL** — Structured data source with Text-to-SQL
-- **React + Plotly** — Frontend with interactive visualizations
+- **React + Plotly** — Frontend with interactive visualisations
 - **LangChain / LLM** — Retrieval orchestration and evaluation
 
 ## Challenges & Learnings
 
-The core challenge was making retrieval work well across both structured and unstructured sources in a single query. Hybrid FAISS + BM25 retrieval significantly outperformed either approach alone. Building the LLM evaluation layer taught me a lot about measuring AI output quality in production.
+The core challenge was making retrieval work reliably across both structured and unstructured sources in a single query. Hybrid FAISS + BM25 retrieval significantly outperformed either approach alone. Building the LLM evaluation layer taught me a lot about measuring AI output quality in production.

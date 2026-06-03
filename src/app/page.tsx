@@ -27,18 +27,18 @@ const experiences = [
     role: "GenAI Intern",
     timeframe: "Mar 2026 – May 2026",
     points: [
-      "Built a RAG Analytics Platform with hybrid FAISS + BM25 retrieval and PostgreSQL Text-to-SQL pipeline via 24 FastAPI endpoints.",
-      "Developed React + Plotly frontend with role-aware query routing across structured and unstructured data sources.",
-    ],
+  "Built a production-grade RAG Analytics Platform with hybrid FAISS + BM25 retrieval across multiple PDFs and a PostgreSQL Text-to-SQL pipeline, exposed via 24 FastAPI endpoints with built-in LLM evaluation metrics for response quality monitoring.",
+  "Developed a React + Plotly frontend with role-aware query routing, enabling non-technical stakeholders to query both structured and unstructured data sources through a single unified interface.",
+],
   },
   {
     company: "Innoventes",
     role: "Software Developer Intern",
     timeframe: "Jul 2025 – Mar 2026",
     points: [
-      "Built a Claim Reimbursement System in Django + PostgreSQL with OCR microservices for automated document extraction.",
-      "Contributed to backend API design, RBAC, and deployment of production-ready features.",
-    ],
+  "Built an end-to-end Claim Reimbursement System in Django and PostgreSQL with a 5-stage automated claim lifecycle, integrating a FastAPI + Tesseract OCR microservice that extracts vendor, date, and amount from receipts into structured JSON.",
+  "Designed and deployed REST APIs with role-based access control across 3 user roles — Employee, Manager, and Finance — streamlining approval workflows and reducing unauthorised access risk.",
+],
   },
 ];
 

@@ -8,15 +8,14 @@ link: "https://github.com/B-Bharadwaj/Medical-Report-Simplifier"
 
 ## Overview
 
-A tool that converts complex medical reports into plain English that patients can actually understand — without losing critical medical meaning or safety-critical negations ("no evidence of cancer" must never become "evidence of cancer").
+Built a PDF-to-plain-English pipeline that simplifies medical reports for patients while maintaining complete safety and accuracy of critical medical information.
 
-## Key Features
+## What I Did
 
-- **Gemini 2.5 Flash Pipeline**: PDF parsing → LLM simplification → safety evaluation → output, with automatic rewrites for unsafe simplifications.
-- **Safety Evaluation Layer**: Three-part check — negation detection, critical medical term retention, and semantic similarity scoring against the original.
-- **Auto-Rewrite Module**: If a simplification fails safety checks, the system automatically generates a corrected version rather than passing through unsafe output.
-- **Readability Improvement**: Reduced Flesch-Kincaid readability grade from 14–16 (graduate level) down to 7–9 (middle school level).
-- **100% Negation Safety**: Zero negation errors across all test cases.
+- Built a PDF-to-plain-English pipeline using Gemini 2.5 Flash, reducing Flesch-Kincaid readability grade from 14–16 to 7–9 across test documents.
+- Designed a 3-layer safety evaluation system covering negation detection, critical term retention, and semantic similarity scoring — achieving 100% negation safety across all test cases.
+- Implemented an auto-rewrite module that detects unsafe simplifications and corrects them before output, eliminating the need for manual safety review.
+- Validated output quality across multiple document types including diagnostic reports, discharge summaries, and prescription notes.
 
 ## Technologies Used
 
@@ -27,4 +26,4 @@ A tool that converts complex medical reports into plain English that patients ca
 
 ## Challenges & Learnings
 
-Medical text simplification is a high-stakes NLP problem. The key insight was that you can't just check readability — you need explicit safety constraints. Building the negation detection and auto-rewrite loop was the most interesting engineering challenge.
+Medical text simplification is a high-stakes NLP problem. The key insight was that readability alone is not enough — you need explicit safety constraints. Building the negation detection and auto-rewrite loop was the most technically interesting part of the project.

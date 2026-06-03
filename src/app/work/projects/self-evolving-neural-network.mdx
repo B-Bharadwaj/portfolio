@@ -9,15 +9,14 @@ link: "https://github.com/B-Bharadwaj/SENN"
 
 ## Overview
 
-A Neural Architecture Search (NAS) framework that uses evolutionary algorithms to automatically discover efficient CNN architectures, inspired by biological evolution. Live evolution tracking via a Streamlit dashboard.
+Built an evolutionary Neural Architecture Search framework that automatically discovers efficient CNN architectures using genetic algorithms and multi-objective optimisation, with live tracking via a Streamlit dashboard.
 
-## Key Features
+## What I Did
 
-- **Architecture DNA**: Each CNN architecture is encoded as a mutable "DNA" string — layers, filters, activations — that can be mutated and crossed over like biological genes.
-- **NSGA-II Pareto Selection**: Multi-objective optimisation balancing accuracy and model efficiency simultaneously using the Non-dominated Sorting Genetic Algorithm II.
-- **Structured L1-norm Pruning**: Post-evolution pruning to reduce model size while preserving accuracy.
-- **Streamlit Dashboard**: Real-time visualisation of the evolutionary process — fitness curves, architecture mutations, and Pareto frontiers.
-- **CIFAR-10 Benchmark**: Validated on the standard image classification benchmark.
+- Built an evolutionary NAS framework with mutation-driven Architecture DNA encoding layer types, filter sizes, and activations as mutable gene sequences.
+- Applied NSGA-II Pareto selection to simultaneously optimise for accuracy and model efficiency, auto-discovering CNN architectures on CIFAR-10 without manual design.
+- Implemented structured L1-norm pruning post-evolution to reduce model size while preserving accuracy.
+- Built a Streamlit dashboard for live tracking of fitness curves, architecture mutations, and Pareto frontiers across generations.
 
 ## Technologies Used
 
@@ -28,4 +27,4 @@ A Neural Architecture Search (NAS) framework that uses evolutionary algorithms t
 
 ## Challenges & Learnings
 
-Balancing exploration (diverse mutations) vs exploitation (refining good architectures) was the core challenge. NSGA-II's Pareto selection naturally handled the accuracy-efficiency tradeoff without manual weighting.
+Balancing exploration of diverse mutations versus exploitation of good architectures was the core challenge. NSGA-II Pareto selection naturally handled the accuracy-efficiency tradeoff without manual weighting — which was the key insight that made the framework work well.

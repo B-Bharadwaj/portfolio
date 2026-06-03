@@ -52,8 +52,10 @@ const home: Home = {
   },
   subline: (
   <>
-    Final-year CS student specialising in Machine Learning — Python, Django, FastAPI backend dev
-    with hands-on experience in RAG systems, deep learning pipelines, and LLM integration.
+    I'm B Bharadwaj — a Computer Science and Engineering graduate from Dayananda Sagar University,
+    specialising in Machine Learning. I design and build backend systems, REST APIs, and AI pipelines
+    — with hands-on experience in Django, FastAPI, PostgreSQL, RAG systems, and deep learning across
+    NLP and Computer Vision.
   </>
 ),
 };
@@ -78,21 +80,17 @@ const about: About = {
     display: true,
     title: "Introduction",
     description: (
-      <>
-        I'm a final-year Computer Science Engineering student at Dayananda Sagar University,
-        Bengaluru, specialising in Machine Learning. My work sits at the intersection of backend
-        systems and generative AI — building scalable APIs, data pipelines, and RAG systems that
-        are genuinely production-ready.
-        <br /><br />
-        I've worked with Django, FastAPI, and PostgreSQL on the backend, and dived deep into
-        PyTorch, TensorFlow, and LLM integration on the AI side. Whether it's a multi-PDF
-        retrieval platform or an evolutionary neural architecture search framework, I like building
-        things that are both technically rigorous and genuinely useful.
-        <br /><br />
-        Outside of code, I'm interested in how AI systems can be made interpretable,
-        safe, and practically deployable — not just accurate on benchmarks.
-      </>
-    ),
+  <>
+    <p>Computer Science and Engineering graduate from Dayananda Sagar University, Bengaluru,
+    specialising in Machine Learning. My work sits at the intersection of backend systems
+    and generative AI — building scalable APIs, data pipelines, and RAG systems that are
+    genuinely production-ready.</p>
+
+    <p>I have worked with Django, FastAPI, and PostgreSQL on the backend, and applied PyTorch,
+    TensorFlow, and LLM integration on the AI side — from hybrid RAG retrieval systems to
+    deep learning models across NLP and Computer Vision.</p>
+  </>
+),
   },
   work: {
     display: true,
@@ -103,16 +101,13 @@ const about: About = {
         timeframe: "March 2026 – May 2026",
         role: "GenAI Intern",
         achievements: [
-          <>
-            Built a production-grade RAG Analytics Platform — a Multi-PDF RAG system with hybrid
-            FAISS + BM25 retrieval and a PostgreSQL Text-to-SQL pipeline, with 24 FastAPI endpoints,
-            built-in LLM evaluation, and SQL logging for full auditability.
-          </>,
-          <>
-            Developed an interactive React frontend with Plotly-based visualizations and role-aware
-            query routing across both structured and unstructured data sources.
-          </>,
-        ],
+  <>
+    Built a production-grade RAG Analytics Platform with hybrid FAISS + BM25 retrieval across multiple PDFs and a PostgreSQL Text-to-SQL pipeline, exposed via 24 FastAPI endpoints with built-in LLM evaluation metrics for response quality monitoring.
+  </>,
+  <>
+    Developed a React + Plotly frontend with role-aware query routing, enabling non-technical stakeholders to query both structured and unstructured data sources through a single unified interface.
+  </>,
+],
         images: [],
       },
       {
@@ -120,16 +115,13 @@ const about: About = {
         timeframe: "July 2025 – March 2026",
         role: "Software Developer Intern",
         achievements: [
-          <>
-            Developed a Claim Reimbursement System using Django and PostgreSQL, enabling end-to-end
-            claim processing with OCR-based microservices for automated document data extraction
-            and space validation.
-          </>,
-          <>
-            Contributed to backend API design, integration, and deployment of production-ready
-            features with role-based access control for clients and analysts.
-          </>,
-        ],
+  <>
+    Built an end-to-end Claim Reimbursement System in Django and PostgreSQL with a 5-stage automated claim lifecycle, integrating a FastAPI + Tesseract OCR microservice that extracts vendor, date, and amount from receipts into structured JSON with user-authoritative override.
+  </>,
+  <>
+    Designed and deployed REST APIs with role-based access control across 3 user roles — Employee, Manager, and Finance — streamlining approval workflows and reducing unauthorised access risk across the platform.
+  </>,
+],
         images: [],
       },
     ],

@@ -8,24 +8,23 @@ link: "https://github.com/B-Bharadwaj/alzheimer-parkinson-detection"
 
 ## Overview
 
-A deep learning system for detecting Alzheimer's and Parkinson's disease biomarkers from protein sequences, using state-of-the-art sequence modelling architectures on TAPE protein embeddings.
+Built a deep learning system for classifying Alzheimer's and Parkinson's disease biomarkers from protein sequences, using state-of-the-art sequence modelling architectures on TAPE protein embeddings.
 
-## Key Features
+## What I Did
 
-- **3-Class Classification**: Distinguishes between Alzheimer's, Parkinson's, and healthy protein sequences with 82% accuracy.
-- **Multi-Architecture Comparison**: Trained and benchmarked BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers.
-- **Auxiliary Regression Head**: Predicts protein misfolding risk score alongside the classification task.
-- **Attention Heatmaps**: Visualises which amino acid subsequences the model attends to — interpretable outputs on Homo sapiens .pdb data.
-- **TAPE Embeddings**: Used pre-trained protein language model embeddings as feature representations.
+- Trained and benchmarked BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers on TAPE protein embeddings for 3-class neurodegenerative disease detection, achieving 82% accuracy.
+- Added an auxiliary misfolding risk regression head alongside the classification task, improving model generalisation across protein sequence variations.
+- Generated attention heatmaps for sequence-level interpretability on Homo sapiens .pdb data, making predictions explainable to domain experts.
+- Evaluated all three architectures systematically to identify the best-performing model for each classification scenario.
 
 ## Technologies Used
 
 - **PyTorch** — Model training and architecture implementation
 - **TAPE** — Pre-trained protein sequence embeddings
-- **BiLSTM + Luong Attention** — Primary sequence model
+- **BiLSTM + Attention** — Primary sequence model
 - **Transformer** — Comparative architecture
 - **Matplotlib / Seaborn** — Attention heatmap visualisation
 
 ## Challenges & Learnings
 
-Working with biological sequence data required understanding domain-specific preprocessing. The multi-task setup (classification + regression) improved generalisation. Attention heatmaps made results explainable to domain experts — a critical requirement for medical AI.
+Working with biological sequence data required understanding domain-specific preprocessing. The multi-task setup combining classification and regression improved generalisation. Attention heatmaps made results explainable to domain experts — a critical requirement for medical AI.
