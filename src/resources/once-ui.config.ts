@@ -170,7 +170,7 @@ const schema: SchemaConfig = {
 
 const sameAs: SameAsConfig = {
   threads: "",
-  linkedin: "https://linkedin.com/in/Bharadwaj",
+  linkedin: "https://www.linkedin.com/in/balaji-bharadwaj1603/",
   discord: "",
 };
 

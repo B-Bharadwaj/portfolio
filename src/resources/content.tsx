@@ -27,7 +27,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://linkedin.com/in/Bharadwaj",
+    link: "https://www.linkedin.com/in/balaji-bharadwaj1603/",
     essential: true,
   },
   {
