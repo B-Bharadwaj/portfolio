@@ -1,31 +1,38 @@
 ---
 title: "RAG Analytics Platform"
-publishedAt: "2026-03-01"
+publishedAt: "Happiest Minds Technologies — GenAI Intern"
 summary: "Production-grade AI BI platform with hybrid FAISS + BM25 multi-PDF retrieval and a PostgreSQL Text-to-SQL pipeline exposed via 24 FastAPI endpoints."
 images: []
-
-link: "https://github.com/B-Bharadwaj/RAG"
+team: []
+link: "https://github.com/B-Bharadwaj"
 ---
 
 ## Overview
 
-Built a production-grade AI BI platform that enables natural language querying over both unstructured PDFs and structured databases through a single unified interface.
+A production-grade AI BI platform for querying both unstructured PDFs and structured databases through a single natural language interface — with built-in evaluation, SQL auditability, and chart generation.
 
 ## What I Did
 
-- Built a Multi-PDF RAG system with hybrid FAISS + BM25 retrieval, improving retrieval accuracy over single-method approaches.
-- Designed a PostgreSQL Text-to-SQL pipeline exposed via 24 FastAPI endpoints with full SQL logging for auditability.
-- Integrated built-in LLM evaluation metrics — faithfulness, relevance, and completeness — running on every query response.
-- Developed a React + Plotly frontend with role-aware routing, allowing non-technical stakeholders to query both data sources without writing code.
+- Implemented hybrid FAISS HNSW + BM25 retrieval with cross-encoder reranking and 3-variation LLM query expansion, improving retrieval precision and recall over single-method approaches.
+- Built a PostgreSQL Text-to-SQL pipeline with full query logging — every answer traceable to the exact SQL that produced it.
+- Integrated Groq Vision (llama-4-scout) for per-figure captioning from PDF crops, stored as searchable chunks.
+- Built an on-demand LLM evaluation pipeline (llama-3.3-70b) scoring Faithfulness, Answer Relevancy, and Context Recall — surfacing the high faithfulness + low context recall failure pattern.
+- Developed SQL-driven analytics with anomaly detection, executive summaries, and a chart generation pipeline supporting bar, line, pie, histogram, and scatter charts.
+- Built a React + Plotly frontend with role-aware routing, multi-paper comparison, and inline figure rendering.
 
 ## Technologies Used
 
-- **FastAPI** — API layer with async endpoints
-- **FAISS + BM25** — Hybrid vector + keyword retrieval
-- **PostgreSQL** — Structured data source with Text-to-SQL
-- **React + Plotly** — Frontend with interactive visualisations
-- **LangChain / LLM** — Retrieval orchestration and evaluation
+- **FastAPI** — 24 async endpoints
+- **FAISS HNSW + BM25** — Hybrid retrieval with cross-encoder reranking
+- **PostgreSQL** — Text-to-SQL pipeline
+- **Groq Vision / LLM Judge** — Figure captioning and evaluation
+- **React + Plotly + Chart.js** — Frontend and visualisations
+- **PyMuPDF** — PDF parsing and figure extraction
 
 ## Challenges & Learnings
 
-The core challenge was making retrieval work reliably across both structured and unstructured sources in a single query. Hybrid FAISS + BM25 retrieval significantly outperformed either approach alone. Building the LLM evaluation layer taught me a lot about measuring AI output quality in production.
+Hybrid FAISS + BM25 with cross-encoder reranking solved precision, but query expansion was critical for short or ambiguous inputs where neither method performed well alone.
+
+On the data side, reliable Text-to-SQL required the LLM to read the full schema before generating queries, with a NOT_SQL fallback preventing silent failures. Keeping all analytics SQL-driven with no Pandas statistics sent to the LLM noticeably improved answer accuracy.
+
+The most non-obvious finding — high faithfulness combined with low context recall — where the model gives confident but incomplete answers. Building evaluation to surface this explicitly was the most valuable addition.
