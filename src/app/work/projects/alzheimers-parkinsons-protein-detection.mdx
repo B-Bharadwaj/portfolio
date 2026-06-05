@@ -1,30 +1,42 @@
 ---
 title: "Alzheimer's & Parkinson's Protein Detection"
-publishedAt: "Personal Project"
+publishedAt: "2025-08-01"
+subtitle: "Personal Project"
 summary: "BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers on TAPE protein embeddings for 3-class neurodegenerative disease detection — 82% accuracy."
 images: []
+team: []
 link: "https://github.com/B-Bharadwaj/alzheimer-parkinson-detection"
 ---
 
 ## Overview
 
-Built a deep learning system for classifying Alzheimer's and Parkinson's disease biomarkers from protein sequences, using state-of-the-art sequence modelling architectures on TAPE protein embeddings.
+A deep learning system for classifying Alzheimer's, Parkinson's, and normal protein sequences using TAPE embeddings and multiple neural architectures. Instead of clinical or imaging data, the model learns sequence-level patterns associated with disease-linked misfolding — making predictions interpretable through attention heatmaps.
 
 ## What I Did
 
-- Trained and benchmarked BiLSTM + Luong Attention, CNN-BiLSTM, and Transformer classifiers on TAPE protein embeddings for 3-class neurodegenerative disease detection, achieving 82% accuracy.
-- Added an auxiliary misfolding risk regression head alongside the classification task, improving model generalisation across protein sequence variations.
-- Generated attention heatmaps for sequence-level interpretability on Homo sapiens .pdb data, making predictions explainable to domain experts.
-- Evaluated all three architectures systematically to identify the best-performing model for each classification scenario.
+- Trained and benchmarked four architectures on TAPE protein embeddings — MLP baseline, BiLSTM + Risk, BiLSTM + Luong Attention, Transformer, and CNN-BiLSTM — achieving up to 82% accuracy on 3-class classification.
+- Added an auxiliary misfolding risk regression head alongside classification, predicting protein stability scores and providing richer biological insight beyond class labels.
+- Generated attention heatmaps for misclassified sequences, visualising which amino acid positions the model focused on — making predictions explainable to domain experts.
+- Built a full preprocessing pipeline: `.pdb` sequence extraction → TAPE embedding generation → data augmentation with sliding windows → train/val/test splits.
+- Evaluated models across Accuracy, Precision, Recall, F1, and Misfolding Risk MSE — with embedding projections (t-SNE, PCA) for visual analysis.
+
+## Results
+
+| Model | Accuracy | Misfolding Risk MSE |
+|---|---|---|
+| BiLSTM + Attention | 0.70+ | 0.08–0.11 |
+| BiLSTM + Risk | 0.65–0.83 | 0.09–0.12 |
+| Transformer + Risk | 0.67–0.82 | 0.10–0.14 |
+| CNN-BiLSTM + Risk | ~0.65 | ~0.11 |
 
 ## Technologies Used
 
 - **PyTorch** — Model training and architecture implementation
 - **TAPE** — Pre-trained protein sequence embeddings
-- **BiLSTM + Attention** — Primary sequence model
+- **BiLSTM + Luong Attention** — Primary sequence model
 - **Transformer** — Comparative architecture
-- **Matplotlib / Seaborn** — Attention heatmap visualisation
+- **Matplotlib / Seaborn** — Attention heatmaps and training curves
 
 ## Challenges & Learnings
 
-Working with biological sequence data required understanding domain-specific preprocessing. The multi-task setup combining classification and regression improved generalisation. Attention heatmaps made results explainable to domain experts — a critical requirement for medical AI.
+Protein sequence data required domain-specific preprocessing — extracting sequences from `.pdb` files and generating TAPE embeddings before any modelling could begin. The multi-task setup combining classification and regression improved generalisation. Attention heatmaps were critical for making results meaningful to biologists — accuracy alone was not sufficient justification for a medical AI system.

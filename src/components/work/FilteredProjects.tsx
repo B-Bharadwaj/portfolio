@@ -57,6 +57,16 @@ const projects = [
     github: "https://github.com/B-Bharadwaj/Medical-Report-Simplifier",
     images: [],
   },
+  {
+  slug: "promptforge",
+  title: "PromptForge — Smart Summarizer",
+  summary: "Customisable NLP summarizer powered by Flan-T5-XL with tone control, audience awareness, and flexible output formats via a Streamlit interface.",
+  tags: ["AI / ML"],
+  tech: ["Flan-T5-XL", "Hugging Face", "Streamlit", "Python", "NLP"],
+  impact: "Tone & audience-aware summarisation",
+  github: "https://github.com/B-Bharadwaj/PromptForge",
+  images: [],
+},
 ];
 
 export function FilteredProjects() {

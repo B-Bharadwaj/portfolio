@@ -1,30 +1,39 @@
 ---
 title: "Self-Evolving Neural Network (SENN)"
-publishedAt: "Personal Project"
-summary: "Evolutionary Neural Architecture Search framework with mutation-driven Architecture DNA and NSGA-II Pareto selection to auto-discover CNN architectures on CIFAR-10."
+publishedAt: "2025-06-01"
+subtitle: "Personal Project"
+summary: "Evolutionary NAS framework with mutation-driven Architecture DNA and NSGA-II Pareto selection to auto-discover CNN architectures on CIFAR-10."
 images: []
-
+team: []
 link: "https://github.com/B-Bharadwaj/SENN"
 ---
 
 ## Overview
 
-Built an evolutionary Neural Architecture Search framework that automatically discovers efficient CNN architectures using genetic algorithms and multi-objective optimisation, with live tracking via a Streamlit dashboard.
+SENN automatically discovers, optimises, and compresses CNN architectures for image classification using evolutionary algorithms — eliminating manual architecture design entirely. Each CNN is encoded as a deterministic Architecture DNA and evolved over multiple generations using mutation, multi-objective selection, and structured pruning.
 
 ## What I Did
 
-- Built an evolutionary NAS framework with mutation-driven Architecture DNA encoding layer types, filter sizes, and activations as mutable gene sequences.
-- Applied NSGA-II Pareto selection to simultaneously optimise for accuracy and model efficiency, auto-discovering CNN architectures on CIFAR-10 without manual design.
-- Implemented structured L1-norm pruning post-evolution to reduce model size while preserving accuracy.
+- Encoded each CNN as a JSON-based Architecture DNA with configurable conv layers (2–6), filters (16–128), kernel sizes, activations, pooling, and regularisation — ensuring valid, reproducible architectures across generations.
+- Implemented a mutation engine introducing controlled structural changes — adding/removing layers, adjusting filters, toggling BatchNorm/Dropout — all constraint-aware to prevent invalid CNNs.
+- Applied NSGA-II Pareto selection with non-dominated sorting and crowding distance, simultaneously optimising for validation accuracy and model efficiency (parameters, FLOPs).
+- Used short 2–3 epoch training per model during evolution to efficiently evaluate 48 architectures across 6 generations (8 models per generation), followed by full 30–50 epoch training on the best candidates.
 - Built a Streamlit dashboard for live tracking of fitness curves, architecture mutations, and Pareto frontiers across generations.
+
+## Results
+
+- CIFAR-10 accuracy: ~75–78% on fully trained best architectures
+- Reduced parameters and FLOPs compared to baseline CNNs
+- 48 architectures evaluated across 6 generations (8 models per generation) without human intervention
 
 ## Technologies Used
 
 - **PyTorch** — Model construction and training
 - **NSGA-II** — Multi-objective evolutionary optimisation
 - **Streamlit** — Live evolution tracking dashboard
-- **NumPy** — Genetic operators (mutation, crossover, selection)
+- **NumPy** — Genetic operators (mutation, selection)
+- **CIFAR-10** — Benchmark dataset
 
 ## Challenges & Learnings
 
-Balancing exploration of diverse mutations versus exploitation of good architectures was the core challenge. NSGA-II Pareto selection naturally handled the accuracy-efficiency tradeoff without manual weighting — which was the key insight that made the framework work well.
+Balancing exploration versus exploitation was the core challenge — too much mutation destabilised good architectures, too little stalled diversity. NSGA-II's crowding distance naturally maintained population diversity without manual tuning. Excluding crossover and weight inheritance was a deliberate choice to preserve architectural validity and deterministic reconstruction.

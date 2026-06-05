@@ -1,29 +1,43 @@
 ---
 title: "Medical Report Simplifier"
-publishedAt: "Personal Project"
+publishedAt: "2025-04-01"
+subtitle: "Personal Project"
 summary: "PDF-to-plain-English pipeline using Gemini 2.5 Flash with a safety evaluation layer — reduces Flesch-Kincaid grade from 14–16 to 7–9 with 100% negation safety."
 images: []
+team: []
 link: "https://github.com/B-Bharadwaj/Medical-Report-Simplifier"
 ---
 
 ## Overview
 
-Built a PDF-to-plain-English pipeline that simplifies medical reports for patients while maintaining complete safety and accuracy of critical medical information.
+A system that converts complex medical reports into clear, patient-friendly explanations using Gemini 2.5 Flash — with a multi-layer safety evaluation pipeline ensuring medical accuracy, negation preservation, and improved readability. Designed so that no critical medical information is lost or distorted in simplification.
 
 ## What I Did
 
-- Built a PDF-to-plain-English pipeline using Gemini 2.5 Flash, reducing Flesch-Kincaid readability grade from 14–16 to 7–9 across test documents.
-- Designed a 3-layer safety evaluation system covering negation detection, critical term retention, and semantic similarity scoring — achieving 100% negation safety across all test cases.
-- Implemented an auto-rewrite module that detects unsafe simplifications and corrects them before output, eliminating the need for manual safety review.
-- Validated output quality across multiple document types including diagnostic reports, discharge summaries, and prescription notes.
+- Built a PDF-to-plain-English pipeline: PDF extraction → Gemini 2.5 Flash simplification → safety evaluation → safe rewrite if needed → final output with metrics.
+- Implemented Semantic Content Retention (SCR) scoring using sentence embeddings to measure meaning preservation between original and simplified text.
+- Built a negation safety checker detecting changes to critical negations — "no fracture", "not malignant", "no evidence of" — achieving 100% negation safety across all test cases.
+- Added critical medical term retention validation ensuring essential clinical terms (lesion, embolism, fracture, carcinoma) are not dropped during simplification.
+- Built a Safe Rewrite Module that automatically corrects unsafe simplifications before output — eliminating manual review for safety violations.
+- Reduced Flesch-Kincaid readability grade from 14–16 (graduate level) to 7–9 (middle school level) while maintaining full medical accuracy.
+- Added a patient follow-up chat assistant that answers questions strictly based on the simplified report — avoiding diagnosis or treatment advice.
+
+## Results
+
+- Readability grade: 14–16 → 7–9
+- Negation safety: 100% maintained across all test cases
+- SCR scores: high meaning preservation confirmed via embeddings
+- Critical medical terms: retained or safely reinserted in all outputs
 
 ## Technologies Used
 
 - **Gemini 2.5 Flash** — LLM for medical text simplification
-- **Python** — Pipeline orchestration
-- **NLP libraries** — Negation detection and semantic similarity
-- **PDF parsing** — Extracting structured text from medical documents
+- **Flask** — Backend API
+- **Streamlit** — Frontend interface
+- **SentenceTransformers** — Semantic similarity scoring
+- **pdfplumber** — PDF text extraction
+- **textstat** — Flesch-Kincaid readability scoring
 
 ## Challenges & Learnings
 
-Medical text simplification is a high-stakes NLP problem. The key insight was that readability alone is not enough — you need explicit safety constraints. Building the negation detection and auto-rewrite loop was the most technically interesting part of the project.
+The core challenge was that standard readability metrics give no signal about safety — a simplified report can score well on readability while silently dropping a critical negation. Building explicit safety constraints as a separate evaluation layer, independent of the LLM, was the key architectural decision that made the system trustworthy. The auto-rewrite module meant the system could self-correct without human intervention.

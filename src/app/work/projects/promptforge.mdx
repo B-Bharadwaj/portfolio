@@ -1,0 +1,32 @@
+---
+title: "PromptForge — Smart Summarizer"
+publishedAt: "2025-01-01"
+subtitle: "Personal Project"
+summary: "Customisable NLP summarizer powered by Flan-T5-XL with tone control, audience awareness, and flexible output formats via a Streamlit interface."
+images: []
+team: []
+link: "https://github.com/B-Bharadwaj/PromptForge"
+---
+
+## Overview
+
+A customisable text summarisation tool powered by Hugging Face's `google/flan-t5-xl` — an instruction-tuned LLM that excels at summarisation, explanation, and zero-shot reasoning. Users can upload `.txt` files or paste content directly and generate summaries tailored to tone, audience, and format preferences.
+
+## What I Did
+
+- Integrated `google/flan-t5-xl` via Hugging Face as the summarisation backbone, used directly for instruction-following without task-specific fine-tuning.
+- Built a prompt templating engine that dynamically constructs prompts based on user-selected tone (formal, technical, creative), audience (child, student, expert), and output format (paragraph, bullet points, one-liner).
+- Implemented max token and temperature controls, giving users fine-grained control over output length and randomness.
+- Built a Streamlit frontend with sidebar controls for all summarisation parameters and a main panel for text input and output display.
+- Supported both direct text paste and `.txt` file upload as input methods.
+
+## Technologies Used
+
+- **google/flan-t5-xl** — Instruction-tuned LLM for summarisation
+- **Hugging Face Transformers** — Model loading and inference
+- **Streamlit** — Interactive frontend with sidebar controls
+- **Python** — Pipeline orchestration and prompt templating
+
+## Challenges & Learnings
+
+The core challenge was making a single model produce meaningfully different outputs across tone and audience combinations without fine-tuning. Careful prompt engineering in the template engine — structuring instructions explicitly before the input text — was what made the tone and audience controls actually work in practice.

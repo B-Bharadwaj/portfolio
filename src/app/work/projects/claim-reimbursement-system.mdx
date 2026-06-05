@@ -1,31 +1,34 @@
 ---
 title: "Claim Reimbursement System"
-publishedAt: "Innoventes — Software Developer Intern"
+publishedAt: "2026-01-01"
+subtitle: "Innoventes — Software Developer Intern"
 summary: "Full-stack Django + React reimbursement platform with a 5-stage claim lifecycle, JWT auth, role-based dashboards, and a FastAPI + Tesseract OCR microservice."
 images: []
+team: []
 
 link: "https://github.com/B-Bharadwaj/Claim-Reimbursement-System"
 ---
 
 ## Overview
 
-Built a full-stack claim reimbursement platform with an automated claim lifecycle, OCR-based receipt processing, and role-specific dashboards for Employee, Manager, and Finance users.
+Built during my internship at Innoventes — a full-stack claim reimbursement platform with an automated claim lifecycle, OCR-based receipt processing, and role-specific dashboards for Employee, Manager, and Finance users. Designed for production-grade enterprise environments with a clean service-oriented architecture.
 
 ## What I Did
 
-- Built an end-to-end reimbursement platform in Django + PostgreSQL with a 5-stage automated claim lifecycle — Draft, Submitted, Manager Review, Finance Review, and Settled.
-- Integrated a FastAPI + Tesseract OCR microservice that extracts vendor, date, and amount from unstructured receipts into structured JSON, with user-authoritative override for corrections.
-- Implemented JWT authentication and role-based access control across 3 user roles, streamlining approval workflows and reducing unauthorised access risk.
-- Designed and deployed production-ready REST APIs with modular architecture for clean separation between claim processing, document handling, and user management.
+- Built a 5-stage automated claim lifecycle — DRAFT → SUBMITTED → MANAGER_APPROVED / REJECTED → FINANCE_APPROVED → PAID — with enforced state transitions and full audit trail.
+- Implemented role-based access control across 3 user roles (Employee, Manager, Finance) with JWT authentication and automatic token refresh for seamless sessions.
+- Built a dedicated FastAPI + Tesseract OCR microservice that extracts vendor name, date, amount, confidence score, and raw text from receipt images and PDFs — auto-filling claim forms with user-authoritative override.
+- Designed RESTful APIs in Django REST Framework covering authentication, claims lifecycle, approvals, payments, and receipt uploads — with clear separation between backend, frontend, and OCR service.
+- Built role-specific React dashboards — Employees track claim status end-to-end, Managers approve or reject with comments, Finance performs final validation and marks claims as paid.
 
 ## Technologies Used
 
-- **Django + DRF** — Core backend and REST API
-- **React** — Frontend with role-specific dashboards
-- **FastAPI + Tesseract** — OCR microservice for receipt parsing
-- **PostgreSQL** — Database with relational claim and user models
+- **Django + DRF** — Core backend, REST APIs, and workflow logic
+- **React** — Role-based dashboards with protected routing
+- **FastAPI + Tesseract** — Independent OCR microservice
+- **PostgreSQL** — Primary data store with relational claim and user models
 - **JWT** — Authentication and session management
 
 ## Challenges & Learnings
 
-Making OCR reliable across different receipt formats was the hardest part. The solution was building a confidence-scoring layer and always giving users the ability to correct extracted values — keeping humans in the loop for accuracy.
+Making OCR reliable across varied receipt formats was the hardest technical problem. The solution was treating OCR as an assistive feature — never a blocking dependency — with a confidence score returned alongside extractions and users always able to override values. Designing the claim lifecycle as strict state transitions prevented invalid workflow jumps and made the system audit-ready from the start.
