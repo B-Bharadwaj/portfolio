@@ -15,6 +15,7 @@ const projects = [
     tech: ["FastAPI", "FAISS", "BM25", "PostgreSQL", "React", "Plotly"],
     impact: "24 FastAPI endpoints",
     github: "https://github.com/B-Bharadwaj/RAG",
+    demo: "https://bharadwaj-ragbot.vercel.app",
     images: [],
   },
   {
@@ -135,13 +136,18 @@ export function FilteredProjects() {
 
             {/* Links */}
             <Row gap="16">
-              <SmartLink href={`/work/${project.slug}`} suffixIcon="arrowRight">
-                <Text variant="body-default-s">Read case study</Text>
-              </SmartLink>
-              <SmartLink href={project.github} suffixIcon="arrowUpRightFromSquare">
-                <Text variant="body-default-s">GitHub</Text>
-              </SmartLink>
-            </Row>
+  <SmartLink href={`/work/${project.slug}`} suffixIcon="arrowRight">
+    <Text variant="body-default-s">Read case study</Text>
+  </SmartLink>
+  <SmartLink href={project.github} suffixIcon="arrowUpRightFromSquare">
+    <Text variant="body-default-s">GitHub</Text>
+  </SmartLink>
+  {(project as any).demo && (
+    <SmartLink href={(project as any).demo} suffixIcon="arrowUpRightFromSquare">
+      <Text variant="body-default-s">Live demo</Text>
+    </SmartLink>
+  )}
+</Row>
 
             {/* Divider between cards */}
             <div style={{ height: 1, background: "var(--neutral-border-weak)", marginTop: 8 }} />
